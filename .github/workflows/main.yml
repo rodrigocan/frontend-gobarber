@@ -36,7 +36,9 @@ jobs:
         export_default_credentials: true
     
     - name: Upload file to bucket
-      run: gsutil -m rsync -R ./build gs://"$BUCKET"
+      run: |
+        gsutil mb -p ${{ secrets.GCP_PROJECT }} gs://"$BUCKET"
+        gsutil -m rsync -R ./build gs://"$BUCKET"
     
     - name: Allow public access
       run: gsutil -m acl ch -R -u AllUsers:R gs://"$BUCKET"
