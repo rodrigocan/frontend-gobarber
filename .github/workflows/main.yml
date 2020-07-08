@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 env:
-  bucket: reactdeploygcs.webfacilities.com.br
+  BUCKET: reactdeploygcs.webfacilities.com.br
 
 jobs:
   build:
